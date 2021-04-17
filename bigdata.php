@@ -1,10 +1,9 @@
 <?php
 $conn = mysqli_connect('localhost', 'root', '', 'fypdb') or die();
 
-$TABLES = array('searchHistory', 'searchRef', 'keyword', 'keywordRef');
+$TABLES = array('searchHistory', 'searchRef');
 
-$rtn = array("searchHistory" => array(), "searchRef" => array(), "keyword" => array(), 'keywordRef' => array());
-
+$rtn = array("searchHistory" => array(), "searchRef" => array());
 
 $query = '';
 foreach ($TABLES as $table)
@@ -117,7 +116,7 @@ echo '<pre>';
 echo json_encode($keywords, JSON_PRETTY_PRINT);
 echo '</pre>';
 
-
+//DELTE
 $stmt = $conn->prepare("DELETE FROM `keywordRef`");
 $stmt->execute();
 $stmt = $conn->prepare("DELETE FROM `keyword`");
